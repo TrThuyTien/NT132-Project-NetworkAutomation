@@ -1,0 +1,9 @@
+# playbooks/configure_ospf
+---
+- name: Configure OSPF on Routers
+  hosts: Routers
+  gather_facts: false
+  connection: network-cli
+  
+  roles: 
+    - ospf

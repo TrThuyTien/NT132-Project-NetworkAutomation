@@ -1,0 +1,18 @@
+# roles/ospf/tasks/main.yml
+---
+- name: Enable OSPF and advertise networks
+  ios_config:
+    lines:
+      - "router ospf {{ ospf_process_id }}"
+
+- name: Advertise OSPF networks
+  ios_config:
+    lines:
+      - "network {{ item }} area {{ ospf_area }}"
+    parents:
+      - "router ospf {{ ospf_process_id }}"
+  loop: "{{ ospf_networks }}" 
+
+- name: Save config to startup-config
+  ios_config:
+    save_when: modified

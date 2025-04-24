@@ -7,3 +7,7 @@
       - "ip address {{ item.ip }} {{ item.mask }}"
       - "no shutdown"
   loop: "{{ interface_configs }}"
+
+- name: Save config to startup-config
+  ios_config:
+    save_when: modified
