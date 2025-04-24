@@ -1,0 +1,18 @@
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+[Routers]
+R1 ansible_host=192.168.248.132 ansible_network_os=ios
+R2 ansible_host=192.168.248.133 ansible_network_os=ios
+R3 ansible_host=192.168.248.134 ansible_network_os=ios
+R4 ansible_host=192.168.248.135 ansible_network_os=ios
+R5 ansible_host=192.168.248.136 ansible_network_os=ios
+
+[Routers:vars]
+ansible_connection=network_cli
+ansible_user=nt132
+ansible_password=cisco
+ansible_become=true
+ansible_become_method=enable
+ansible_become_enable_password=cisco

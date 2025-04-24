@@ -1,0 +1,7 @@
+# host_vars/router3.yml
+# ---
+interface_configs:
+  - interface: fa1/0
+    ip: 10.1.4.1 
+    mask: 255.255.255.0
+

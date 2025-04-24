@@ -1,0 +1,7 @@
+# playbooks/configure_routers
+---
+- name: Configure interfaces on all routers
+  hosts: Routers
+  gather_facts: false
+  roles:
+    - interface_config

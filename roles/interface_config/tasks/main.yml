@@ -1,0 +1,9 @@
+# roles/interface_config/tasks/main.yml
+---
+- name: Configure interfaces for {{ inventory_hostname }}
+  ios_config:
+    lines:
+      - "interface {{ item.interface }}"
+      - "ip address {{ item.ip }} {{ item.mask }}"
+      - "no shutdown"
+  loop: "{{ interface_configs }}"
