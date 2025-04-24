@@ -1,0 +1,13 @@
+# roles/show_config/tasks/main.yml
+---
+- name: Show running-config of the router
+  ios_command:
+    commands:
+      - show running-config
+  register: running_config_output
+
+- name: Save running-confg to file
+  copy:
+    content: "{{ running_config_output.stdout[0] }}"
+    dest: "{{ output_dir }}/{{ inventory_hostname }}-running-config.txt"
+  delegate_to: localhost

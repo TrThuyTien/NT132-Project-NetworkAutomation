@@ -1,0 +1,12 @@
+# playbooks/show_config.yml
+---
+- name: Show current configuration of network devices
+  hosts: Routers
+  gather_facts: false
+  connection: network-cli
+
+  vars:
+    output_dir: /home/thuytien/NT132/show_config_outputs
+
+  roles:
+    - show_config
